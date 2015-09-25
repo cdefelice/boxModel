@@ -3,7 +3,10 @@
 <head>
 <title>Intro To The Box Model</title>
 <meta charset="utf-8" />
-
+<!--link tags always go in the head section, rel for relationship, always use same value called stylesheet-->
+<!-- then use href to tell where we want to link to, we're in the same working directory, so give it the same file name -->
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style2.css"> <!--the order here matters. add the 2nd. it will be override the rules in style css-->
 </head>
 <body>
 <section id="noteondivandsection">
@@ -40,93 +43,114 @@
   </ul>
   <p>Just as with font size, pixels are a <em>absolute</em> measurement value whereas ems and percentages are <em>relative</em>. We'll discuss the merits of relative vs absolute measurements later on. Set the width of each div below to the value indicated by selecting each div by id in the style section. Note their appearance after setting the indicated width.</p>
 	<div class="spaceExample" id="width1">
-    Set this div to a width of 75%.
+    width: 75%;
 	</div>
   <div class="spaceExample" id="width2">
-    Set this div to a width of 100 pixels (px).
+    width: 100px;
   </div>
   <div class="spaceExample" id="width3">
-    Set this div to a width of 3 em.
+    width: <em>3</em>
   </div>
   <h2>Containers</h2>
   <p>When one block level element contains another, the larger element is called the container. The body element is the container of all other elements on the page. By default, block elements take up 100% of their container. When we set a percentage width, the element will take up that percentage <em>of its container</em>. Thus, the actual width of the element will depend on the width of the container itself! In the example below, the div with the class "demoContainer" is the container. NOTE: This class name is arbitrary. Any div can be a container! Just as in the last exercise, use the id of each div to set style rules to resize the container and the div inside and see what happens</p>
 	<div class="demoContainer" id="container1">
+    width: 50%;
     <div class="spaceExample" id="inside1">
-      Set the container to a width of 50% and this div to a width of 50%.
+      width: 50%;
     </div>
   </div>
   <div class="demoContainer" id="container2">
+    width: 300px;
     <div class="spaceExample" id="inside2">
-      Set the container to a width of 300 pixels and this div to a width of 75%.
+      width: 75%;
     </div>
   </div>
   <div class="demoContainer" id="container3">
+    width: 200px;
     <div class="spaceExample" id="inside3">
-      Set the container to a width of 200 pixels and this div to a width of 300 pixels.
+      width: 300px;
     </div>
   </div>
   <h2>Border</h2>
   <p>The border property allows us to set a visible border around an element. It takes three values, width, style and color. This can be a little tricky to understand, so look up the border property, and ask for help if you need it.</p>
   <div class="demoContainer2">
     <div id="border1">
-      Give this div a solid black border 1 pixel wide.
+      border: 1px black solid;
     </div>
     <div id="border2">
-      Give this div a solid red border 2 pixels wide.
+      border: 2px red solid;
     </div>
     <div id="border3">
-      Give this div a dashed grey border 3 pixels wide.
+    border: 3px grey dashed;
     </div>
     <div id="border4">
-      Give this div a solid black border 1px wide, set the width to 50%, and give it a background-color of maroon.
+      border: 1px;
+      width: 50%;
+      background-color: maroon;
     </div>
   </div>
   <h2>Margin</h2>
   <p>The margin property allows us to set space between the border of an element and its neighbors. The margin property can take one, two, or four values. If given one value, this value with set the margin for all four sides of the element. If given two values the first value sets the vertical margin and the second sets the horizontal. We'll deal with four later (it's rarely used).
     <div class="demoContainer2">
       <div id="margin1">
-        Give this div a solid black border 1 pixel wide, and a margin of 10% on all four sides;
+        border: 1px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
       </div>
       <div id="margin2">
-        Give this div a solid black border 1 pixel wide, a 5 pixel veritcal margin and a 10% horizontal margin.
+        border: 1px, black, solid;
+        margin: 10%, 5px, 10%, 5px;
+
       </div>
       <div id="margin3">
-        Give this div a 25% horizontal margin and a 2 pixel vertical margin.
+        margin: 2px, 25%, 2px, 25%;
       </div>
       <div id="margin4">
-        Give this div a background-color of maroon and a 15% horizontal margin (no vertical margin).
+        background-color: maroon;
+        margin: 0px, 15%, 0px, 15%;
       </div>
     </div>
   <h2>Padding</h2>
   <p>The padding property lets us set space between the border of an element and its content. Like the margin, it can take one, two or four values. A one value padding is applied to all four sides. For a two value padding the first value sets vertical padding and the second, horizontal.</p>
   <div class="demoContainer2">
     <div id="padding1">
-      Give this div a solid black border 1 pixel wide, and padding and margin of 10% on all four sides;
+      border: 1px, black, solid;
+      margin: 10%;
     </div>
     <div id="padding2">
-      Give this div a solid black border 1 pixel wide, a 5 pixels of veritcal padding, 1 em of horizontal padding, and a 10% horizontal margin.
+      border: 1px black solid;
+      margin: 5px,10%, 5px, 10%;
+      padding: 1px;
     </div>
     <div id="padding3">
-      Give this div 2em horizontal padding and a 3em vertical padding.
+      padding: 3px, 2px, 3px, 2px;
     </div>
     <div id="padding4">
-      Give this div a background-color of maroon and 15% horizontal padding (no vertical padding).
+      background-color: maroon;
+      padding: 0px, 15%, 0px, 15%;
     </div>
   </div>
   <h2>Single-side properties</h2>
   <p>CSS also provides properties to set border, margins, and padding for each side of the element individually. For example border-bottom sets a border for the bottom of the element, padding-right sets padding for the right-hand side, margin-left sets a left-hand margin and etc. Let's try these out.</p>
   <div class="demoContainer2" style="width=80%;margin:0 5%">
     <div id="singleSide1">
-      Give this div a bottom border 1 pixel wide, solid grey
+      border-bottom-style: 1px grey solid;
     </div>
     <div id="singleSide1">
-      Give this div a left margin of 10%, a top border 1 pixel wide, dashed black, and 1em of top padding.
+      margin: 0px, 0px, 0px, 10%;
+      border-top-style: 1px black dashed;
+      padding-top: 1px;
     </div>
     <div id="singleSide2">
-      Give this div a width of 50% and give it a left margin of 10% and a right border 2 pixels wide, solid red.
+      width: 50%;
+      margin: 0px, 0px, 0px, 10%;
+      border-right-style: 2px red solid;
     </div>
     <div id="singleSide3">
-      Give this div a background-color of maroon, a right margin of 5% and left, top, and bottom padding of 3em.
+      background-color: maroon;
+      margin: 3px, 5%, 3px, 3px;
     </div>
   </div>
 </section>
